@@ -1,0 +1,50 @@
+name: Heartbeat watchdog
+
+on:
+  schedule:
+    - cron: "0 1 * * *"    # 09:00 SGT, well after the daily collect
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check heartbeat age
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - << 'EOF'
+          import datetime as dt, json, os, sys, urllib.request
+
+          path = "data/heartbeat.log"
+          stale_hours = 48
+          now = dt.datetime.now(dt.timezone.utc)
+
+          last = None
+          if os.path.exists(path):
+              with open(path) as f:
+                  lines = [l for l in f if l.strip()]
+              if lines:
+                  last = dt.datetime.fromisoformat(lines[-1].split()[0])
+
+          if last and (now - last) < dt.timedelta(hours=stale_hours):
+              print(f"Heartbeat OK: last run {last.isoformat()}")
+              sys.exit(0)
+
+          msg = ("⚠️ Flight Deal Radar: pipeline may be broken — "
+                 f"no heartbeat in the last {stale_hours}h. "
+                 "Check the Actions tab.")
+          req = urllib.request.Request(
+              f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendMessage",
+              data=json.dumps({"chat_id": os.environ["TELEGRAM_CHAT_ID"],
+                               "text": msg}).encode(),
+              headers={"Content-Type": "application/json"})
+          urllib.request.urlopen(req, timeout=30)
+          print("Stale heartbeat — warning sent.")
+          EOF

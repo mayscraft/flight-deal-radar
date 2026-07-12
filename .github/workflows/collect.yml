@@ -1,0 +1,44 @@
+name: Daily collect & alert
+
+on:
+  schedule:
+    - cron: "0 19 * * *"   # 03:00 SGT
+  workflow_dispatch: {}     # manual "Run workflow" button for testing
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Collect fares
+        env:
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+        run: python collector.py
+
+      - name: Send deal alerts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python alerter.py
+
+      - name: Publish snapshot to dashboard
+        run: cp data/latest.json docs/latest.json
+
+      - name: Commit data
+        run: |
+          git config user.name "deal-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/ docs/latest.json
+          git diff --cached --quiet || git commit -m "data: daily collection $(date -u +%F)"
+          git push

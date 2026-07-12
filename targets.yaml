@@ -1,0 +1,19 @@
+# Flight Deal Radar — target return fares in SGD.
+# Alert fires when the cheapest observed return fare <= target.
+# This file is the product's brain in MVP. Edit freely; commit to change.
+
+TPE: 350   # Taipei
+NRT: 550   # Tokyo Narita
+HND: 550   # Tokyo Haneda
+KIX: 520   # Osaka
+ICN: 480   # Seoul
+HKG: 320   # Hong Kong
+DPS: 180   # Bali
+HAN: 220   # Hanoi
+DAD: 200   # Da Nang
+CNX: 280   # Chiang Mai
+MNL: 250   # Manila
+CMB: 380   # Colombo
+MLE: 450   # Maldives
+PER: 500   # Perth
+SYD: 750   # Sydney

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Deal Radar — SIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#0d1620;        /* blue-black board */
+    --slat:#121e2b;         /* row slat */
+    --slat-edge:#1c2a3a;    /* slat seam */
+    --ivory:#e9e2d0;        /* flap text */
+    --amber:#ffb43a;        /* deal / solari amber */
+    --steel:#6b7f92;        /* secondary */
+    --dim:#3d4f60;          /* faint */
+    --watch:#7fd4c1;        /* watch status */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--board);
+    color:var(--ivory);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15px;
+    line-height:1.4;
+    min-height:100vh;
+    background-image:
+      radial-gradient(ellipse 120% 60% at 50% -10%, #16283a 0%, transparent 60%);
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:28px 16px 64px;}
+
+  /* ---------- header ---------- */
+  .eyebrow{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:13px;letter-spacing:.28em;
+    color:var(--steel);text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--dim);}
+  h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:clamp(38px,7vw,56px);
+    letter-spacing:.04em;text-transform:uppercase;
+    margin:6px 0 2px;line-height:1;
+  }
+  h1 .amber{color:var(--amber);}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;
+    margin-top:14px;font-size:12px;color:var(--steel);
+  }
+  .pulse{
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .pulse i{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--watch);
+    box-shadow:0 0 8px var(--watch);
+    animation:beat 2.4s ease-in-out infinite;
+  }
+  @keyframes beat{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* ---------- hero deal row ---------- */
+  .hero{
+    margin:30px 0 8px;
+    border:1px solid var(--slat-edge);
+    background:linear-gradient(180deg,#141f2d 0%, #101a26 48%, #0c141e 52%, #111b27 100%);
+    border-radius:6px;
+    padding:18px 18px 16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{ /* solari mid-seam */
+    content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+    background:rgba(0,0,0,.55);
+  }
+  .hero-label{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:.3em;color:var(--amber);
+    text-transform:uppercase;margin-bottom:8px;position:relative;z-index:1;
+  }
+  .hero-main{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;
+    position:relative;z-index:1;
+  }
+  .flap{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:clamp(30px,6.4vw,44px);letter-spacing:.06em;text-transform:uppercase;
+  }
+  .flap .ch{display:inline-block;}
+  .hero-price{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;
+    font-size:clamp(24px,5.4vw,36px);color:var(--amber);
+  }
+  .hero-sub{
+    margin-top:8px;font-size:12.5px;color:var(--steel);position:relative;z-index:1;
+  }
+  .hero-sub b{color:var(--ivory);font-weight:500;}
+
+  /* ---------- filter ---------- */
+  .filterbar{margin:26px 0 10px;}
+  .filterbar label{
+    display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:.26em;color:var(--steel);
+    text-transform:uppercase;margin-bottom:8px;
+  }
+  .filterbar input{
+    width:100%;padding:13px 16px;
+    background:#0a121a;border:1px solid var(--slat-edge);border-radius:6px;
+    color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:15px;
+    letter-spacing:.02em;
+  }
+  .filterbar input::placeholder{color:var(--dim);}
+  .filterbar input:focus{
+    outline:2px solid var(--amber);outline-offset:1px;border-color:transparent;
+  }
+
+  /* ---------- board ---------- */
+  .board-head{
+    display:grid;
+    grid-template-columns:64px 1fr 90px 90px;
+    gap:10px;padding:10px 14px 8px;
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);
+  }
+  .board-head .r{text-align:right;}
+  .row{
+    display:grid;
+    grid-template-columns:64px 1fr 90px 90px;
+    gap:10px;align-items:center;
+    padding:13px 14px;
+    background:linear-gradient(180deg,var(--slat) 0%, #0f1925 49%, #0c1420 51%, var(--slat) 100%);
+    border:1px solid var(--slat-edge);
+    border-radius:5px;
+    margin-bottom:7px;
+    position:relative;
+  }
+  .row::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45);}
+  .row>*{position:relative;z-index:1;}
+  .code{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:24px;letter-spacing:.06em;
+  }
+  .city{min-width:0;}
+  .city .name{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:17px;letter-spacing:.05em;text-transform:uppercase;
+  }
+  .city .detail{font-size:11px;color:var(--steel);margin-top:2px;}
+  .fare{text-align:right;}
+  .fare .now{font-weight:600;font-size:16px;}
+  .fare .tgt{font-size:11px;color:var(--dim);margin-top:2px;}
+  .status{text-align:right;}
+  .chip{
+    display:inline-block;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    padding:5px 9px;border-radius:3px;
+  }
+  .chip.deal{background:var(--amber);color:#1a1204;box-shadow:0 0 14px rgba(255,180,58,.35);}
+  .chip.watch{background:transparent;color:var(--watch);border:1px solid rgba(127,212,193,.5);}
+  .chip.none{color:var(--dim);}
+  .delta{font-size:11px;margin-top:3px;}
+  .delta.under{color:var(--amber);}
+  .delta.near{color:var(--watch);}
+  .delta.over{color:var(--dim);}
+
+  .row.deal-row{border-color:rgba(255,180,58,.55);}
+  .row.deal-row .code,.row.deal-row .now{color:var(--amber);}
+
+  .empty{
+    display:none;padding:34px 16px;text-align:center;color:var(--steel);
+    border:1px dashed var(--slat-edge);border-radius:6px;font-size:13px;
+  }
+  .empty b{color:var(--ivory);font-weight:500;}
+
+  /* ---------- alert preview ---------- */
+  .section-label{
+    margin:44px 0 14px;
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:.28em;color:var(--steel);text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-label::after{content:"";flex:1;height:1px;background:var(--slat-edge);}
+  .tg{
+    max-width:420px;
+    background:#152232;border:1px solid var(--slat-edge);
+    border-radius:12px 12px 12px 3px;
+    padding:14px 16px;font-size:13.5px;line-height:1.55;
+  }
+  .tg .from{font-size:11px;color:var(--watch);margin-bottom:6px;font-weight:500;}
+  .tg .link{color:#8ab8ea;text-decoration:underline;text-underline-offset:2px;}
+  .tg .warn{color:var(--amber);}
+  .tg .time{font-size:10.5px;color:var(--dim);text-align:right;margin-top:8px;}
+
+  footer{
+    margin-top:48px;font-size:11px;color:var(--dim);line-height:1.7;
+  }
+  footer b{color:var(--steel);font-weight:500;}
+
+  @media (max-width:560px){
+    .board-head{grid-template-columns:52px 1fr 84px 78px;padding:10px 10px 8px;}
+    .row{grid-template-columns:52px 1fr 84px 78px;padding:12px 10px;}
+    .code{font-size:20px;}
+    .city .name{font-size:15px;}
+    .city .detail{font-size:10px;}
+    .fare .now{font-size:15px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .pulse i{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">SIN · Changi · Daily 03:00 SGT</div>
+  <h1>Flight Deal <span class="amber">Radar</span></h1>
+  <div class="meta">
+    <span class="pulse"><i></i><span id="pulseText">Loading…</span></span>
+    <span id="metaCollected">Last collected today · 84 fares · 15 routes</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">Best deal on the board</div>
+    <div class="hero-main">
+      <div class="flap" id="heroFlap">TAIPEI</div>
+      <div class="hero-price">S$288</div>
+    </div>
+    <div class="hero-sub">S$62 under your S$350 target · <b>Scoot · nonstop · Nov 2026</b> · cached price — confirm on Google Flights</div>
+  </div>
+
+  <div class="filterbar">
+    <label for="q">Filter destinations</label>
+    <input id="q" type="text" placeholder="Type a city, code or country… e.g. tokyo" autocomplete="off">
+  </div>
+
+  <div class="board-head">
+    <div>Dest</div><div>Route</div><div class="r">Fare / Target</div><div class="r">Status</div>
+  </div>
+  <div id="board"></div>
+  <div class="empty" id="empty">
+    No routes match. <b>Only tracked destinations appear here</b> — edit targets.yaml to add more.
+  </div>
+
+  <div class="section-label">Alert format (example)</div>
+  <div class="tg">
+    <div class="from">Deal Radar Bot</div>
+    🛫 <b>TPE Taipei — S$288 return</b> (target: S$350)<br>
+    Travel: Nov 2026 · Scoot · nonstop<br>
+    <span class="warn">⚠️ Cached price — confirm live:</span><br>
+    <span class="link">google.com/travel/flights · SIN→TPE · Nov</span>
+    <div class="time">03:04 ✓✓</div>
+  </div>
+
+  <footer>
+    <b>MVP · flight-deal-radar</b><br>
+    Prices are cached observations from the daily collector, not live fares. Targets are hand-set in targets.yaml.
+    Statistical scoring, multi-origin arbitrage and verification arrive in the full engine.
+  </footer>
+</div>
+
+<script>
+const routes = [
+  {code:"TPE", city:"Taipei",     country:"Taiwan",      fare:288, target:350, airline:"Scoot",  detail:"nonstop · Nov 2026"},
+  {code:"DPS", city:"Bali",       country:"Indonesia",   fare:168, target:180, airline:"Jetstar",detail:"nonstop · Sep 2026"},
+  {code:"ICN", city:"Seoul",      country:"South Korea", fare:505, target:480, airline:"Scoot",  detail:"nonstop · Oct 2026"},
+  {code:"HKG", city:"Hong Kong",  country:"Hong Kong",   fare:341, target:320, airline:"Cathay", detail:"nonstop · Jan 2027"},
+  {code:"NRT", city:"Tokyo",      country:"Japan",       fare:642, target:550, airline:"SQ",     detail:"nonstop · Dec 2026"},
+  {code:"HND", city:"Tokyo Haneda",country:"Japan",      fare:618, target:550, airline:"ANA",    detail:"nonstop · Dec 2026"},
+  {code:"KIX", city:"Osaka",      country:"Japan",       fare:596, target:520, airline:"Scoot",  detail:"nonstop · Nov 2026"},
+  {code:"HAN", city:"Hanoi",      country:"Vietnam",     fare:246, target:220, airline:"VietJet",detail:"nonstop · Oct 2026"},
+  {code:"DAD", city:"Da Nang",    country:"Vietnam",     fare:238, target:200, airline:"Scoot",  detail:"nonstop · Sep 2026"},
+  {code:"CNX", city:"Chiang Mai", country:"Thailand",    fare:312, target:280, airline:"AirAsia",detail:"1 stop KUL · Nov 2026"},
+  {code:"MNL", city:"Manila",     country:"Philippines", fare:279, target:250, airline:"Cebu Pacific", detail:"nonstop · Oct 2026"},
+  {code:"CMB", city:"Colombo",    country:"Sri Lanka",   fare:433, target:380, airline:"SriLankan", detail:"nonstop · Jan 2027"},
+  {code:"MLE", city:"Maldives",   country:"Maldives",    fare:512, target:450, airline:"SQ",     detail:"nonstop · Feb 2027"},
+  {code:"PER", city:"Perth",      country:"Australia",   fare:548, target:500, airline:"Scoot",  detail:"nonstop · Oct 2026"},
+  {code:"SYD", city:"Sydney",     country:"Australia",   fare:812, target:750, airline:"Qantas", detail:"nonstop · Mar 2027"},
+];
+
+function statusOf(r){
+  if(r.fare<=r.target) return "deal";
+  if(r.fare<=r.target*1.1) return "watch";
+  return "none";
+}
+
+function render(list){
+  const board=document.getElementById("board");
+  const empty=document.getElementById("empty");
+  board.innerHTML="";
+  if(!list.length){empty.style.display="block";return;}
+  empty.style.display="none";
+  const order={deal:0,watch:1,none:2};
+  [...list].sort((a,b)=>order[statusOf(a)]-order[statusOf(b)] || (a.fare-a.target)-(b.fare-b.target))
+  .forEach(r=>{
+    const st=statusOf(r);
+    const diff=r.fare-r.target;
+    const deltaTxt = diff<=0 ? `S$${-diff} under` : `S$${diff} over`;
+    const deltaCls = st==="deal"?"under":st==="watch"?"near":"over";
+    const chip = st==="deal" ? '<span class="chip deal">Book now</span>'
+               : st==="watch"? '<span class="chip watch">Watch</span>'
+               : '<span class="chip none">—</span>';
+    const row=document.createElement("div");
+    row.className="row"+(st==="deal"?" deal-row":"");
+    row.innerHTML=`
+      <div class="code">${r.code}</div>
+      <div class="city">
+        <div class="name">${r.city}</div>
+        <div class="detail">${r.airline} · ${r.detail}</div>
+      </div>
+      <div class="fare">
+        <div class="now">S$${r.fare}</div>
+        <div class="tgt">tgt S$${r.target}</div>
+      </div>
+      <div class="status">${chip}<div class="delta ${deltaCls}">${deltaTxt}</div></div>`;
+    board.appendChild(row);
+  });
+}
+
+let activeRoutes = routes; // replaced by live data when latest.json loads
+
+document.getElementById("q").addEventListener("input",e=>{
+  const q=e.target.value.trim().toLowerCase();
+  render(q? activeRoutes.filter(r=>(r.code+" "+r.city+" "+r.country).toLowerCase().includes(q)) : activeRoutes);
+});
+
+const CITY={TPE:["Taipei","Taiwan"],NRT:["Tokyo Narita","Japan"],HND:["Tokyo Haneda","Japan"],
+  KIX:["Osaka","Japan"],ICN:["Seoul","South Korea"],HKG:["Hong Kong","Hong Kong"],
+  DPS:["Bali","Indonesia"],HAN:["Hanoi","Vietnam"],DAD:["Da Nang","Vietnam"],
+  CNX:["Chiang Mai","Thailand"],MNL:["Manila","Philippines"],CMB:["Colombo","Sri Lanka"],
+  MLE:["Maldives","Maldives"],PER:["Perth","Australia"],SYD:["Sydney","Australia"]};
+const AIRLINE={TR:"Scoot",SQ:"Singapore Airlines","3K":"Jetstar",GK:"Jetstar",AK:"AirAsia",
+  D7:"AirAsia X",QZ:"AirAsia",CI:"China Airlines",BR:"EVA Air",VJ:"VietJet",VN:"Vietnam Airlines",
+  CX:"Cathay",MH:"Malaysia Airlines",TG:"Thai Airways",PR:"PAL","5J":"Cebu Pacific",
+  UL:"SriLankan",QF:"Qantas",JQ:"Jetstar",NH:"ANA",JL:"JAL",KE:"Korean Air",OZ:"Asiana",MU:"China Eastern"};
+const MONTHS=["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function fromSnapshot(snap){
+  return snap.routes.filter(r=>r.price_sgd!=null).map(r=>{
+    const [city,country]=CITY[r.destination]||[r.destination,""];
+    const [y,m]=r.travel_month.split("-");
+    const stops=r.transfers===0?"nonstop":`${r.transfers} stop(s)`;
+    return {code:r.destination, city, country,
+      fare:Math.round(r.price_sgd), target:r.target_sgd,
+      airline:AIRLINE[r.airline]||r.airline||"—",
+      detail:`${stops} · ${MONTHS[+m]} ${y}`};
+  });
+}
+
+function updateHero(list, snap){
+  const deals=list.filter(r=>r.fare<=r.target)
+                  .sort((a,b)=>(a.fare-a.target)-(b.fare-b.target));
+  const heroEl=document.querySelector(".hero");
+  if(!deals.length){
+    heroEl.querySelector(".hero-label").textContent="No deals on the board today";
+    document.getElementById("heroFlap").textContent="WATCHING";
+    heroEl.querySelector(".hero-price").textContent="";
+    heroEl.querySelector(".hero-sub").innerHTML=
+      "Nothing beats a target right now — <b>the silence is the product.</b> Edit targets.yaml to tune the bar.";
+    return;
+  }
+  const d=deals[0];
+  document.getElementById("heroFlap").textContent=d.city.toUpperCase();
+  heroEl.querySelector(".hero-price").textContent=`S$${d.fare}`;
+  heroEl.querySelector(".hero-sub").innerHTML=
+    `S$${d.target-d.fare} under your S$${d.target} target · <b>${d.airline} · ${d.detail}</b> · cached price — confirm on Google Flights`;
+}
+
+fetch("./latest.json",{cache:"no-store"})
+  .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(snap=>{
+    activeRoutes=fromSnapshot(snap);
+    const when=new Date(snap.generated_at);
+    const ageH=(Date.now()-when.getTime())/36e5;
+    document.getElementById("pulseText").textContent=
+      ageH<=48 ? "Pipeline OK" : `Pipeline stale — last run ${Math.round(ageH)}h ago`;
+    document.getElementById("metaCollected").textContent=
+      `Last collected ${when.toLocaleString("en-SG",{timeZone:"Asia/Singapore",dateStyle:"medium",timeStyle:"short"})} · ${activeRoutes.length} routes`;
+    updateHero(activeRoutes,snap);
+    render(activeRoutes);
+  })
+  .catch(()=>{
+    document.getElementById("pulseText").textContent="Awaiting first collection";
+    document.getElementById("metaCollected").textContent=
+      "Showing sample data — first collection pending";
+  });
+
+/* one orchestrated moment: hero city flips in like a solari board */
+(function(){
+  const el=document.getElementById("heroFlap");
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const target=el.textContent;
+  const glyphs="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  el.textContent="";
+  [...target].forEach((ch,i)=>{
+    const span=document.createElement("span");
+    span.className="ch";span.textContent=" ";
+    el.appendChild(span);
+    let ticks=0,max=6+i*3;
+    const t=setInterval(()=>{
+      span.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];
+      if(++ticks>=max){span.textContent=ch;clearInterval(t);}
+    },42);
+  });
+})();
+
+render(routes);
+</script>
+</body>
+</html>
