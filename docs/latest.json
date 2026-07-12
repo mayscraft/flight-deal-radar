@@ -1,7 +1,13 @@
 {
- "generated_at": "2026-07-12T07:27:55+00:00",
+ "generated_at": "2026-07-12T08:29:27+00:00",
  "origin": "SIN",
  "routes": [
+  {
+   "origin": "SIN",
+   "destination": "CMB",
+   "price_sgd": null,
+   "target_sgd": 380
+  },
   {
    "collected_at": "2026-07-12",
    "origin": "SIN",
