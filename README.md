@@ -23,11 +23,15 @@ dashboard. Built to the MVP brief; the full statistical engine layers on later.
    - `TRAVELPAYOUTS_TOKEN`
    - `TELEGRAM_BOT_TOKEN`
    - `TELEGRAM_CHAT_ID`
-3. Repo → Settings → Pages → Source: *Deploy from a branch* → branch `main`,
-   folder `/docs`. Your dashboard will be at
-   `https://<username>.github.io/<repo>/`.
+### 4. Netlify (dashboard hosting)
+1. Sign in at app.netlify.com → **Add new site → Import an existing
+   project** → GitHub → pick this repo.
+2. Build settings are read from `netlify.toml` (publish directory `docs`,
+   no build command) — just click **Deploy**.
+3. Every push redeploys the site, including the daily data commit from the
+   workflow, so the dashboard stays current automatically.
 
-### 4. First run
+### 5. First run
 Actions tab → **Daily collect & alert** → *Run workflow*. A green run means:
 fares collected, `data/history.jsonl` growing, dashboard live, and a Telegram
 ping if anything already beats a target.
@@ -49,7 +53,8 @@ alerter.py                   target comparison → Telegram, with 72h dedupe
 targets.yaml                 hand-set "good deal" prices (SGD, return)
 .github/workflows/collect.yml   daily 03:00 SGT run + data commit
 .github/workflows/watchdog.yml  heartbeat check, 09:00 SGT
-docs/index.html              departure-board dashboard (GitHub Pages)
+netlify.toml                 Netlify site config (publishes docs/)
+docs/index.html              departure-board dashboard (hosted on Netlify)
 data/history.jsonl           append-only price history — seed data for the full engine
 ```
 
