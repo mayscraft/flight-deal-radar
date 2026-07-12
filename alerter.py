@@ -31,6 +31,19 @@ CITY = {
     "HAN": "Hanoi", "DAD": "Da Nang", "CNX": "Chiang Mai", "MNL": "Manila",
     "CMB": "Colombo", "MLE": "Maldives", "PER": "Perth", "SYD": "Sydney",
 }
+AIRLINE = {
+    "TR": "Scoot", "SQ": "Singapore Airlines", "3K": "Jetstar", "GK": "Jetstar",
+    "AK": "AirAsia", "D7": "AirAsia X", "QZ": "AirAsia", "FD": "Thai AirAsia",
+    "CI": "China Airlines", "BR": "EVA Air", "IT": "Tigerair Taiwan",
+    "VJ": "VietJet", "VZ": "Thai Vietjet", "VN": "Vietnam Airlines",
+    "CX": "Cathay", "MH": "Malaysia Airlines", "OD": "Batik Air", "ID": "Batik Air",
+    "TG": "Thai Airways", "SL": "Thai Lion", "PR": "PAL", "5J": "Cebu Pacific",
+    "UL": "SriLankan", "QF": "Qantas", "JQ": "Jetstar", "NH": "ANA", "JL": "JAL",
+    "KE": "Korean Air", "OZ": "Asiana", "TW": "T'way Air", "7C": "Jeju Air",
+    "LJ": "Jin Air", "BX": "Air Busan", "MU": "China Eastern", "MF": "Xiamen Air",
+    "NX": "Air Macau", "AI": "Air India", "MM": "Peach", "GA": "Garuda",
+    "BI": "Royal Brunei", "ZG": "ZIPAIR",
+}
 MONTH_NAME = ["", "January", "February", "March", "April", "May", "June",
               "July", "August", "September", "October", "November", "December"]
 
@@ -101,8 +114,15 @@ def main() -> int:
         dest = route["destination"]
         city = CITY.get(dest, dest)
         link = deep_link(route["origin"], dest, route["travel_month"])
-        airline = route.get("airline") or "—"
-        stops = "nonstop" if route.get("transfers") == 0 else f"{route.get('transfers')} stop(s)"
+        code = route.get("airline")
+        airline = AIRLINE.get(code, code) or "—"
+        transfers = route.get("transfers")
+        if transfers == 0:
+            stops = "nonstop"
+        elif transfers is None:
+            stops = "stops n/a"
+        else:
+            stops = f"{transfers} stop(s)"
         text = (
             f"🛫 <b>{dest} {city} — S${price} return</b> (target: S${target})\n"
             f"Travel: {month_label(route['travel_month'])} · {airline} · {stops}\n"

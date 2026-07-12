@@ -122,11 +122,17 @@ def main() -> int:
             continue
         if d not in latest or row["price_sgd"] < latest[d]["price_sgd"]:
             latest[d] = row
+    # Every tracked route appears in the snapshot; price_sgd is null when the
+    # API had no data today so the dashboard can show the gap instead of
+    # silently dropping the route.
     snapshot = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "origin": ORIGIN,
         "routes": [
-            {**latest[d], "target_sgd": targets[d]} for d in sorted(latest)
+            {**latest[d], "target_sgd": targets[d]} if d in latest
+            else {"origin": ORIGIN, "destination": d, "price_sgd": None,
+                  "target_sgd": targets[d]}
+            for d in sorted(targets)
         ],
     }
     with open(LATEST, "w") as f:

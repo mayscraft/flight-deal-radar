@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flight Deal Radar — SIN</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -150,6 +151,10 @@
   .city .detail{font-size:11px;color:var(--steel);margin-top:2px;}
   .fare{text-align:right;}
   .fare .now{font-weight:600;font-size:16px;}
+  .fare a.now{
+    color:inherit;text-decoration:underline dotted;text-underline-offset:3px;
+  }
+  .fare a.now:hover{color:var(--amber);}
   .fare .tgt{font-size:11px;color:var(--dim);margin-top:2px;}
   .status{text-align:right;}
   .chip{
@@ -281,9 +286,20 @@ const routes = [
 ];
 
 function statusOf(r){
+  if(r.fare==null) return "nodata";
   if(r.fare<=r.target) return "deal";
   if(r.fare<=r.target*1.1) return "watch";
   return "none";
+}
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g,
+    c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function flightsLink(r){
+  const q=`Flights to ${r.code} from SIN`+(r.monthLabel?` in ${r.monthLabel}`:"");
+  return "https://www.google.com/travel/flights?q="+encodeURIComponent(q);
 }
 
 function render(list){
@@ -292,29 +308,38 @@ function render(list){
   board.innerHTML="";
   if(!list.length){empty.style.display="block";return;}
   empty.style.display="none";
-  const order={deal:0,watch:1,none:2};
-  [...list].sort((a,b)=>order[statusOf(a)]-order[statusOf(b)] || (a.fare-a.target)-(b.fare-b.target))
+  const order={deal:0,watch:1,none:2,nodata:3};
+  [...list].sort((a,b)=>order[statusOf(a)]-order[statusOf(b)]
+    || ((a.fare??Infinity)-a.target)-((b.fare??Infinity)-b.target))
   .forEach(r=>{
     const st=statusOf(r);
-    const diff=r.fare-r.target;
-    const deltaTxt = diff<=0 ? `S$${-diff} under` : `S$${diff} over`;
-    const deltaCls = st==="deal"?"under":st==="watch"?"near":"over";
-    const chip = st==="deal" ? '<span class="chip deal">Book now</span>'
-               : st==="watch"? '<span class="chip watch">Watch</span>'
-               : '<span class="chip none">—</span>';
+    let fareHtml, statusHtml;
+    if(st==="nodata"){
+      fareHtml=`<div class="now" style="color:var(--dim)">—</div>
+        <div class="tgt">tgt S$${esc(r.target)}</div>`;
+      statusHtml='<span class="chip none">No data</span>';
+    }else{
+      const diff=r.fare-r.target;
+      const deltaTxt = diff<=0 ? `S$${-diff} under` : `S$${diff} over`;
+      const deltaCls = st==="deal"?"under":st==="watch"?"near":"over";
+      const chip = st==="deal" ? '<span class="chip deal">Book now</span>'
+                 : st==="watch"? '<span class="chip watch">Watch</span>'
+                 : '<span class="chip none">—</span>';
+      fareHtml=`<a class="now" href="${esc(flightsLink(r))}" target="_blank"
+          rel="noopener" title="Confirm live on Google Flights">S$${esc(r.fare)}</a>
+        <div class="tgt">tgt S$${esc(r.target)}</div>`;
+      statusHtml=`${chip}<div class="delta ${deltaCls}">${deltaTxt}</div>`;
+    }
     const row=document.createElement("div");
     row.className="row"+(st==="deal"?" deal-row":"");
     row.innerHTML=`
-      <div class="code">${r.code}</div>
+      <div class="code">${esc(r.code)}</div>
       <div class="city">
-        <div class="name">${r.city}</div>
-        <div class="detail">${r.airline} · ${r.detail}</div>
+        <div class="name">${esc(r.city)}</div>
+        <div class="detail">${esc(r.airline)} · ${esc(r.detail)}</div>
       </div>
-      <div class="fare">
-        <div class="now">S$${r.fare}</div>
-        <div class="tgt">tgt S$${r.target}</div>
-      </div>
-      <div class="status">${chip}<div class="delta ${deltaCls}">${deltaTxt}</div></div>`;
+      <div class="fare">${fareHtml}</div>
+      <div class="status">${statusHtml}</div>`;
     board.appendChild(row);
   });
 }
@@ -332,25 +357,35 @@ const CITY={TPE:["Taipei","Taiwan"],NRT:["Tokyo Narita","Japan"],HND:["Tokyo Han
   CNX:["Chiang Mai","Thailand"],MNL:["Manila","Philippines"],CMB:["Colombo","Sri Lanka"],
   MLE:["Maldives","Maldives"],PER:["Perth","Australia"],SYD:["Sydney","Australia"]};
 const AIRLINE={TR:"Scoot",SQ:"Singapore Airlines","3K":"Jetstar",GK:"Jetstar",AK:"AirAsia",
-  D7:"AirAsia X",QZ:"AirAsia",CI:"China Airlines",BR:"EVA Air",VJ:"VietJet",VN:"Vietnam Airlines",
-  CX:"Cathay",MH:"Malaysia Airlines",TG:"Thai Airways",PR:"PAL","5J":"Cebu Pacific",
-  UL:"SriLankan",QF:"Qantas",JQ:"Jetstar",NH:"ANA",JL:"JAL",KE:"Korean Air",OZ:"Asiana",MU:"China Eastern"};
+  D7:"AirAsia X",QZ:"AirAsia",FD:"Thai AirAsia",CI:"China Airlines",BR:"EVA Air",
+  IT:"Tigerair Taiwan",VJ:"VietJet",VZ:"Thai Vietjet",VN:"Vietnam Airlines",
+  CX:"Cathay",MH:"Malaysia Airlines",OD:"Batik Air",ID:"Batik Air",
+  TG:"Thai Airways",SL:"Thai Lion",PR:"PAL","5J":"Cebu Pacific",
+  UL:"SriLankan",QF:"Qantas",JQ:"Jetstar",NH:"ANA",JL:"JAL",KE:"Korean Air",OZ:"Asiana",
+  TW:"T'way Air","7C":"Jeju Air",LJ:"Jin Air",BX:"Air Busan",MU:"China Eastern",
+  MF:"Xiamen Air",NX:"Air Macau",AI:"Air India",MM:"Peach",GA:"Garuda",
+  BI:"Royal Brunei",ZG:"ZIPAIR"};
 const MONTHS=["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 function fromSnapshot(snap){
-  return snap.routes.filter(r=>r.price_sgd!=null).map(r=>{
+  return snap.routes.map(r=>{
     const [city,country]=CITY[r.destination]||[r.destination,""];
+    if(r.price_sgd==null){
+      return {code:r.destination, city, country, fare:null,
+        target:r.target_sgd, airline:"—", detail:"no cached fares today", monthLabel:""};
+    }
     const [y,m]=r.travel_month.split("-");
-    const stops=r.transfers===0?"nonstop":`${r.transfers} stop(s)`;
+    const stops=r.transfers===0?"nonstop":(r.transfers==null?"stops n/a":`${r.transfers} stop(s)`);
+    const monthLabel=`${MONTHS[+m]} ${y}`;
     return {code:r.destination, city, country,
       fare:Math.round(r.price_sgd), target:r.target_sgd,
       airline:AIRLINE[r.airline]||r.airline||"—",
-      detail:`${stops} · ${MONTHS[+m]} ${y}`};
+      detail:`${stops} · ${monthLabel}`, monthLabel};
   });
 }
 
 function updateHero(list, snap){
-  const deals=list.filter(r=>r.fare<=r.target)
+  const deals=list.filter(r=>r.fare!=null && r.fare<=r.target)
                   .sort((a,b)=>(a.fare-a.target)-(b.fare-b.target));
   const heroEl=document.querySelector(".hero");
   if(!deals.length){
@@ -376,10 +411,12 @@ fetch("./latest.json",{cache:"no-store"})
     const ageH=(Date.now()-when.getTime())/36e5;
     document.getElementById("pulseText").textContent=
       ageH<=48 ? "Pipeline OK" : `Pipeline stale — last run ${Math.round(ageH)}h ago`;
+    const reporting=activeRoutes.filter(r=>r.fare!=null).length;
     document.getElementById("metaCollected").textContent=
-      `Last collected ${when.toLocaleString("en-SG",{timeZone:"Asia/Singapore",dateStyle:"medium",timeStyle:"short"})} · ${activeRoutes.length} routes`;
+      `Last collected ${when.toLocaleString("en-SG",{timeZone:"Asia/Singapore",dateStyle:"medium",timeStyle:"short"})} · ${reporting}/${activeRoutes.length} routes reporting`;
     updateHero(activeRoutes,snap);
     render(activeRoutes);
+    flipHero();
   })
   .catch(()=>{
     document.getElementById("pulseText").textContent="Awaiting first collection";
@@ -388,9 +425,11 @@ fetch("./latest.json",{cache:"no-store"})
   });
 
 /* one orchestrated moment: hero city flips in like a solari board */
-(function(){
+let flipGen=0;
+function flipHero(){
   const el=document.getElementById("heroFlap");
   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const gen=++flipGen;                 // cancels any flip still running
   const target=el.textContent;
   const glyphs="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   el.textContent="";
@@ -400,13 +439,15 @@ fetch("./latest.json",{cache:"no-store"})
     el.appendChild(span);
     let ticks=0,max=6+i*3;
     const t=setInterval(()=>{
+      if(gen!==flipGen){clearInterval(t);return;}
       span.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];
       if(++ticks>=max){span.textContent=ch;clearInterval(t);}
     },42);
   });
-})();
+}
 
 render(routes);
+flipHero();
 </script>
 </body>
 </html>
