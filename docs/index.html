@@ -62,6 +62,25 @@
   }
   @keyframes beat{0%,100%{opacity:1}50%{opacity:.35}}
 
+  /* ---------- read me first ---------- */
+  .readme{
+    margin:26px 0 0;
+    border:1px solid var(--slat-edge);
+    border-left:3px solid var(--amber);
+    background:#101a26;
+    border-radius:6px;
+    padding:14px 16px;
+  }
+  .readme-label{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:.3em;color:var(--amber);
+    text-transform:uppercase;margin-bottom:7px;
+  }
+  .readme p{
+    font-size:12.5px;color:var(--steel);line-height:1.65;
+  }
+  .readme b{color:var(--ivory);font-weight:500;}
+
   /* ---------- hero deal row ---------- */
   .hero{
     margin:30px 0 8px;
@@ -225,6 +244,18 @@
   <div class="meta">
     <span class="pulse"><i></i><span id="pulseText">Loading…</span></span>
     <span id="metaCollected">Last collected today · 84 fares · 15 routes</span>
+  </div>
+
+  <div class="readme">
+    <div class="readme-label">Read me first</div>
+    <p>
+      Every morning at 03:00 SGT this radar collects the cheapest <b>return fares
+      from Singapore</b> for the destinations below and compares each against a
+      hand-set target price. Anything at or below target lights up as a
+      <b>deal</b> and triggers a Telegram alert. Prices are <b>cached airline
+      data, not live quotes</b> — click any fare to confirm the real price on
+      Google Flights before booking.
+    </p>
   </div>
 
   <div class="hero">
