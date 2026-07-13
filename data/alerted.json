@@ -34,5 +34,11 @@
   "travel_month": "2027-01",
   "price_sgd": 223,
   "sent_at": "2026-07-12T21:35:33+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2026-08",
+  "price_sgd": 523,
+  "sent_at": "2026-07-13T22:14:08+00:00"
  }
 ]
