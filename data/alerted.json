@@ -40,5 +40,17 @@
   "travel_month": "2026-08",
   "price_sgd": 523,
   "sent_at": "2026-07-13T22:14:08+00:00"
+ },
+ {
+  "destination": "MLE",
+  "travel_month": "2026-09",
+  "price_sgd": 426,
+  "sent_at": "2026-07-14T22:34:36+00:00"
+ },
+ {
+  "destination": "TPE",
+  "travel_month": "2026-10",
+  "price_sgd": 269,
+  "sent_at": "2026-07-14T22:34:36+00:00"
  }
 ]
