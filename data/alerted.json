@@ -112,5 +112,35 @@
   "travel_month": "2026-08",
   "price_sgd": 280,
   "sent_at": "2026-07-17T21:37:29+00:00"
+ },
+ {
+  "destination": "HKG",
+  "travel_month": "2026-09",
+  "price_sgd": 320,
+  "sent_at": "2026-07-18T21:36:43+00:00"
+ },
+ {
+  "destination": "HND",
+  "travel_month": "2026-08",
+  "price_sgd": 537,
+  "sent_at": "2026-07-18T21:36:43+00:00"
+ },
+ {
+  "destination": "KIX",
+  "travel_month": "2026-10",
+  "price_sgd": 496,
+  "sent_at": "2026-07-18T21:36:43+00:00"
+ },
+ {
+  "destination": "MLE",
+  "travel_month": "2026-09",
+  "price_sgd": 426,
+  "sent_at": "2026-07-18T21:36:43+00:00"
+ },
+ {
+  "destination": "MNL",
+  "travel_month": "2026-11",
+  "price_sgd": 214,
+  "sent_at": "2026-07-18T21:36:43+00:00"
  }
 ]
