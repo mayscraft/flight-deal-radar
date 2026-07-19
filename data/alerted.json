@@ -142,5 +142,23 @@
   "travel_month": "2026-11",
   "price_sgd": 214,
   "sent_at": "2026-07-18T21:36:43+00:00"
+ },
+ {
+  "destination": "HKG",
+  "travel_month": "2026-10",
+  "price_sgd": 314,
+  "sent_at": "2026-07-19T21:37:34+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2026-11",
+  "price_sgd": 503,
+  "sent_at": "2026-07-19T21:37:34+00:00"
+ },
+ {
+  "destination": "SYD",
+  "travel_month": "2026-09",
+  "price_sgd": 542,
+  "sent_at": "2026-07-19T21:37:34+00:00"
  }
 ]
