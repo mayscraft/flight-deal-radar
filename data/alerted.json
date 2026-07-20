@@ -160,5 +160,35 @@
   "travel_month": "2026-09",
   "price_sgd": 542,
   "sent_at": "2026-07-19T21:37:34+00:00"
+ },
+ {
+  "destination": "HND",
+  "travel_month": "2026-09",
+  "price_sgd": 492,
+  "sent_at": "2026-07-20T22:31:50+00:00"
+ },
+ {
+  "destination": "ICN",
+  "travel_month": "2026-08",
+  "price_sgd": 314,
+  "sent_at": "2026-07-20T22:31:50+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2026-09",
+  "price_sgd": 494,
+  "sent_at": "2026-07-20T22:31:50+00:00"
+ },
+ {
+  "destination": "PER",
+  "travel_month": "2026-09",
+  "price_sgd": 386,
+  "sent_at": "2026-07-20T22:31:50+00:00"
+ },
+ {
+  "destination": "TPE",
+  "travel_month": "2026-08",
+  "price_sgd": 280,
+  "sent_at": "2026-07-20T22:31:50+00:00"
  }
 ]
