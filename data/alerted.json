@@ -214,5 +214,23 @@
   "travel_month": "2026-11",
   "price_sgd": 498,
   "sent_at": "2026-07-21T22:14:17+00:00"
+ },
+ {
+  "destination": "HKG",
+  "travel_month": "2026-10",
+  "price_sgd": 313,
+  "sent_at": "2026-07-22T22:38:22+00:00"
+ },
+ {
+  "destination": "MLE",
+  "travel_month": "2026-09",
+  "price_sgd": 445,
+  "sent_at": "2026-07-22T22:38:22+00:00"
+ },
+ {
+  "destination": "PER",
+  "travel_month": "2026-08",
+  "price_sgd": 405,
+  "sent_at": "2026-07-22T22:38:22+00:00"
  }
 ]

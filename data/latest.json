@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-07-21T22:14:17+00:00",
+ "generated_at": "2026-07-22T22:38:22+00:00",
  "origin": "SIN",
  "routes": [
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "CMB",
    "travel_month": "2027-01",
@@ -17,7 +17,7 @@
    "target_sgd": 380
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "CNX",
    "travel_month": "2026-12",
@@ -31,7 +31,7 @@
    "target_sgd": 280
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "DAD",
    "travel_month": "2026-08",
@@ -45,7 +45,7 @@
    "target_sgd": 200
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "DPS",
    "travel_month": "2026-10",
@@ -59,7 +59,7 @@
    "target_sgd": 180
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "HAN",
    "travel_month": "2026-08",
@@ -73,7 +73,7 @@
    "target_sgd": 220
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "HKG",
    "travel_month": "2026-10",
@@ -87,7 +87,7 @@
    "target_sgd": 320
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "HND",
    "travel_month": "2026-09",
@@ -101,12 +101,12 @@
    "target_sgd": 550
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "ICN",
    "travel_month": "2026-08",
-   "price_sgd": 314,
-   "native_price": 314,
+   "price_sgd": 310,
+   "native_price": 310,
    "native_currency": "SGD",
    "airline": "TW",
    "transfers": 0,
@@ -115,7 +115,7 @@
    "target_sgd": 480
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "KIX",
    "travel_month": "2026-10",
@@ -129,10 +129,10 @@
    "target_sgd": 520
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "MLE",
-   "travel_month": "2026-10",
+   "travel_month": "2026-09",
    "price_sgd": 445,
    "native_price": 445,
    "native_currency": "SGD",
@@ -143,7 +143,7 @@
    "target_sgd": 450
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "MNL",
    "travel_month": "2026-11",
@@ -157,7 +157,7 @@
    "target_sgd": 250
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "NRT",
    "travel_month": "2026-09",
@@ -171,26 +171,26 @@
    "target_sgd": 550
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "PER",
-   "travel_month": "2026-09",
-   "price_sgd": 386,
-   "native_price": 386,
+   "travel_month": "2026-08",
+   "price_sgd": 405,
+   "native_price": 405,
    "native_currency": "SGD",
-   "airline": "JQ",
+   "airline": "TR",
    "transfers": 0,
    "trip_type": "return",
    "source": "travelpayouts",
    "target_sgd": 500
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "SYD",
    "travel_month": "2026-11",
-   "price_sgd": 498,
-   "native_price": 498,
+   "price_sgd": 497,
+   "native_price": 497,
    "native_currency": "SGD",
    "airline": "TR",
    "transfers": 0,
@@ -199,7 +199,7 @@
    "target_sgd": 750
   },
   {
-   "collected_at": "2026-07-21",
+   "collected_at": "2026-07-22",
    "origin": "SIN",
    "destination": "TPE",
    "travel_month": "2026-08",
