@@ -256,5 +256,17 @@
   "travel_month": "2026-09",
   "price_sgd": 273,
   "sent_at": "2026-08-07T04:15:15+00:00"
+ },
+ {
+  "destination": "KIX",
+  "travel_month": "2026-09",
+  "price_sgd": 343,
+  "sent_at": "2026-08-07T21:20:12+00:00"
+ },
+ {
+  "destination": "MLE",
+  "travel_month": "2027-01",
+  "price_sgd": 441,
+  "sent_at": "2026-08-07T21:20:12+00:00"
  }
 ]
