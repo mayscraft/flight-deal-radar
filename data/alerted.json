@@ -1,12 +1,6 @@
 [
  {
   "destination": "HKG",
-  "travel_month": "2026-08",
-  "price_sgd": 317,
-  "sent_at": "2026-07-29T22:16:59+00:00"
- },
- {
-  "destination": "HKG",
   "travel_month": "2026-10",
   "price_sgd": 296,
   "sent_at": "2026-07-30T22:46:22+00:00"
@@ -280,5 +274,11 @@
   "travel_month": "2026-10",
   "price_sgd": 269,
   "sent_at": "2026-08-12T19:58:23+00:00"
+ },
+ {
+  "destination": "PER",
+  "travel_month": "2027-02",
+  "price_sgd": 422,
+  "sent_at": "2026-08-13T19:53:55+00:00"
  }
 ]
