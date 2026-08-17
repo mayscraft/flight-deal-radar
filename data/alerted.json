@@ -280,5 +280,17 @@
   "travel_month": "2026-11",
   "price_sgd": 415,
   "sent_at": "2026-08-16T19:16:52+00:00"
+ },
+ {
+  "destination": "ICN",
+  "travel_month": "2026-09",
+  "price_sgd": 273,
+  "sent_at": "2026-08-17T19:22:42+00:00"
+ },
+ {
+  "destination": "KIX",
+  "travel_month": "2026-09",
+  "price_sgd": 416,
+  "sent_at": "2026-08-17T19:22:42+00:00"
  }
 ]
