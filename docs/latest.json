@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-25T19:26:10+00:00",
+ "generated_at": "2026-08-26T21:34:28+00:00",
  "origin": "SIN",
  "routes": [
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "CMB",
    "travel_month": "2026-11",
@@ -17,7 +17,7 @@
    "target_sgd": 380
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "CNX",
    "travel_month": "2026-09",
@@ -31,7 +31,7 @@
    "target_sgd": 280
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "DAD",
    "travel_month": "2027-01",
@@ -45,7 +45,7 @@
    "target_sgd": 200
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "DPS",
    "travel_month": "2026-12",
@@ -59,21 +59,21 @@
    "target_sgd": 180
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "HAN",
    "travel_month": "2026-12",
-   "price_sgd": 398,
-   "native_price": 398,
+   "price_sgd": 409,
+   "native_price": 409,
    "native_currency": "SGD",
-   "airline": "VJ",
-   "transfers": 0,
+   "airline": "VN",
+   "transfers": 1,
    "trip_type": "return",
    "source": "travelpayouts",
    "target_sgd": 220
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "HKG",
    "travel_month": "2027-02",
@@ -87,7 +87,7 @@
    "target_sgd": 320
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "HND",
    "travel_month": "2027-02",
@@ -101,21 +101,21 @@
    "target_sgd": 550
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "ICN",
    "travel_month": "2026-09",
-   "price_sgd": 312,
-   "native_price": 312,
+   "price_sgd": 355,
+   "native_price": 355,
    "native_currency": "SGD",
-   "airline": "TR",
+   "airline": "TW",
    "transfers": 0,
    "trip_type": "return",
    "source": "travelpayouts",
    "target_sgd": 480
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "KIX",
    "travel_month": "2026-10",
@@ -129,7 +129,7 @@
    "target_sgd": 520
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "MLE",
    "travel_month": "2026-10",
@@ -143,12 +143,12 @@
    "target_sgd": 450
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "MNL",
-   "travel_month": "2026-09",
-   "price_sgd": 218,
-   "native_price": 218,
+   "travel_month": "2026-10",
+   "price_sgd": 196,
+   "native_price": 196,
    "native_currency": "SGD",
    "airline": "5J",
    "transfers": 0,
@@ -157,12 +157,12 @@
    "target_sgd": 250
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "NRT",
    "travel_month": "2026-11",
-   "price_sgd": 475,
-   "native_price": 475,
+   "price_sgd": 477,
+   "native_price": 477,
    "native_currency": "SGD",
    "airline": "VJ",
    "transfers": 1,
@@ -171,7 +171,7 @@
    "target_sgd": 550
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "PER",
    "travel_month": "2026-11",
@@ -185,12 +185,12 @@
    "target_sgd": 500
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "SYD",
    "travel_month": "2026-11",
-   "price_sgd": 502,
-   "native_price": 502,
+   "price_sgd": 492,
+   "native_price": 492,
    "native_currency": "SGD",
    "airline": "TR",
    "transfers": 0,
@@ -199,12 +199,12 @@
    "target_sgd": 750
   },
   {
-   "collected_at": "2026-08-25",
+   "collected_at": "2026-08-26",
    "origin": "SIN",
    "destination": "TPE",
    "travel_month": "2026-09",
-   "price_sgd": 263,
-   "native_price": 263,
+   "price_sgd": 265,
+   "native_price": 265,
    "native_currency": "SGD",
    "airline": "TR",
    "transfers": 0,
