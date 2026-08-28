@@ -1,11 +1,5 @@
 [
  {
-  "destination": "PER",
-  "travel_month": "2027-02",
-  "price_sgd": 422,
-  "sent_at": "2026-08-13T19:53:55+00:00"
- },
- {
   "destination": "KIX",
   "travel_month": "2026-09",
   "price_sgd": 460,
@@ -280,5 +274,17 @@
   "travel_month": "2026-10",
   "price_sgd": 196,
   "sent_at": "2026-08-26T21:34:28+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2026-10",
+  "price_sgd": 506,
+  "sent_at": "2026-08-28T02:24:18+00:00"
+ },
+ {
+  "destination": "PER",
+  "travel_month": "2026-11",
+  "price_sgd": 468,
+  "sent_at": "2026-08-28T02:24:18+00:00"
  }
 ]
