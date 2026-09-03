@@ -1,17 +1,5 @@
 [
  {
-  "destination": "ICN",
-  "travel_month": "2026-09",
-  "price_sgd": 273,
-  "sent_at": "2026-08-20T19:26:11+00:00"
- },
- {
-  "destination": "KIX",
-  "travel_month": "2026-09",
-  "price_sgd": 415,
-  "sent_at": "2026-08-20T19:26:11+00:00"
- },
- {
   "destination": "MNL",
   "travel_month": "2026-09",
   "price_sgd": 218,
@@ -292,5 +280,17 @@
   "travel_month": "2026-10",
   "price_sgd": 544,
   "sent_at": "2026-09-02T21:30:55+00:00"
+ },
+ {
+  "destination": "MLE",
+  "travel_month": "2026-10",
+  "price_sgd": 441,
+  "sent_at": "2026-09-03T21:32:27+00:00"
+ },
+ {
+  "destination": "SYD",
+  "travel_month": "2027-02",
+  "price_sgd": 543,
+  "sent_at": "2026-09-03T21:32:27+00:00"
  }
 ]
