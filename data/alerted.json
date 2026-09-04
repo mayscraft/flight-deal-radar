@@ -1,11 +1,5 @@
 [
  {
-  "destination": "MNL",
-  "travel_month": "2026-09",
-  "price_sgd": 218,
-  "sent_at": "2026-08-21T19:21:12+00:00"
- },
- {
   "destination": "HND",
   "travel_month": "2026-09",
   "price_sgd": 501,
@@ -292,5 +286,17 @@
   "travel_month": "2027-02",
   "price_sgd": 543,
   "sent_at": "2026-09-03T21:32:27+00:00"
+ },
+ {
+  "destination": "MNL",
+  "travel_month": "2026-11",
+  "price_sgd": 225,
+  "sent_at": "2026-09-04T21:10:22+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2026-10",
+  "price_sgd": 515,
+  "sent_at": "2026-09-04T21:10:22+00:00"
  }
 ]
