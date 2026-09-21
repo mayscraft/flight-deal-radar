@@ -1,11 +1,5 @@
 [
  {
-  "destination": "NRT",
-  "travel_month": "2026-10",
-  "price_sgd": 515,
-  "sent_at": "2026-09-07T21:52:01+00:00"
- },
- {
   "destination": "HKG",
   "travel_month": "2026-10",
   "price_sgd": 314,
@@ -298,5 +292,17 @@
   "travel_month": "2027-03",
   "price_sgd": 460,
   "sent_at": "2026-09-20T21:08:31+00:00"
+ },
+ {
+  "destination": "HKG",
+  "travel_month": "2027-01",
+  "price_sgd": 311,
+  "sent_at": "2026-09-21T22:23:45+00:00"
+ },
+ {
+  "destination": "TPE",
+  "travel_month": "2026-11",
+  "price_sgd": 298,
+  "sent_at": "2026-09-21T22:23:45+00:00"
  }
 ]
