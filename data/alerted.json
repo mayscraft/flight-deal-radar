@@ -1,11 +1,5 @@
 [
  {
-  "destination": "MNL",
-  "travel_month": "2027-03",
-  "price_sgd": 221,
-  "sent_at": "2026-09-10T21:19:57+00:00"
- },
- {
   "destination": "HND",
   "travel_month": "2026-10",
   "price_sgd": 455,
