@@ -1,17 +1,5 @@
 [
  {
-  "destination": "NRT",
-  "travel_month": "2026-11",
-  "price_sgd": 414,
-  "sent_at": "2026-09-29T22:47:49+00:00"
- },
- {
-  "destination": "TPE",
-  "travel_month": "2026-11",
-  "price_sgd": 276,
-  "sent_at": "2026-09-29T22:47:49+00:00"
- },
- {
   "destination": "DPS",
   "travel_month": "2026-10",
   "price_sgd": 172,
@@ -262,5 +250,11 @@
   "travel_month": "2026-11",
   "price_sgd": 286,
   "sent_at": "2026-10-13T01:04:08+00:00"
+ },
+ {
+  "destination": "ICN",
+  "travel_month": "2026-11",
+  "price_sgd": 385,
+  "sent_at": "2026-10-13T23:10:16+00:00"
  }
 ]
