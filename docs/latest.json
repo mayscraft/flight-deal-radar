@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-10-13T23:10:16+00:00",
+ "generated_at": "2026-10-14T22:00:10+00:00",
  "origin": "SIN",
  "routes": [
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "CMB",
    "travel_month": "2026-11",
@@ -17,7 +17,7 @@
    "target_sgd": 380
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "CNX",
    "travel_month": "2026-11",
@@ -31,7 +31,7 @@
    "target_sgd": 280
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "DAD",
    "travel_month": "2026-11",
@@ -45,12 +45,12 @@
    "target_sgd": 200
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "DPS",
-   "travel_month": "2027-02",
-   "price_sgd": 175,
-   "native_price": 175,
+   "travel_month": "2026-11",
+   "price_sgd": 189,
+   "native_price": 189,
    "native_currency": "SGD",
    "airline": "JQ",
    "transfers": 0,
@@ -59,7 +59,7 @@
    "target_sgd": 180
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "HAN",
    "travel_month": "2026-11",
@@ -73,35 +73,35 @@
    "target_sgd": 220
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "HKG",
-   "travel_month": "2026-12",
-   "price_sgd": 420,
-   "native_price": 420,
+   "travel_month": "2026-11",
+   "price_sgd": 426,
+   "native_price": 426,
    "native_currency": "SGD",
-   "airline": "MH",
+   "airline": "AK",
    "transfers": 1,
    "trip_type": "return",
    "source": "travelpayouts",
    "target_sgd": 320
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "HND",
    "travel_month": "2026-11",
-   "price_sgd": 507,
-   "native_price": 507,
+   "price_sgd": 517,
+   "native_price": 517,
    "native_currency": "SGD",
-   "airline": "VJ",
+   "airline": "CZ",
    "transfers": 1,
    "trip_type": "return",
    "source": "travelpayouts",
    "target_sgd": 550
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "ICN",
    "travel_month": "2026-11",
@@ -115,7 +115,7 @@
    "target_sgd": 480
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "KIX",
    "travel_month": "2027-04",
@@ -129,12 +129,12 @@
    "target_sgd": 520
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "MLE",
    "travel_month": "2027-03",
-   "price_sgd": 462,
-   "native_price": 462,
+   "price_sgd": 459,
+   "native_price": 459,
    "native_currency": "SGD",
    "airline": "AI",
    "transfers": 1,
@@ -143,7 +143,7 @@
    "target_sgd": 450
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "MNL",
    "travel_month": "2027-02",
@@ -157,7 +157,7 @@
    "target_sgd": 250
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "NRT",
    "travel_month": "2026-12",
@@ -171,12 +171,12 @@
    "target_sgd": 550
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "PER",
-   "travel_month": "2027-03",
-   "price_sgd": 443,
-   "native_price": 443,
+   "travel_month": "2026-12",
+   "price_sgd": 587,
+   "native_price": 587,
    "native_currency": "SGD",
    "airline": "TR",
    "transfers": 0,
@@ -185,7 +185,7 @@
    "target_sgd": 500
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "SYD",
    "travel_month": "2026-12",
@@ -199,7 +199,7 @@
    "target_sgd": 750
   },
   {
-   "collected_at": "2026-10-13",
+   "collected_at": "2026-10-14",
    "origin": "SIN",
    "destination": "TPE",
    "travel_month": "2027-03",
