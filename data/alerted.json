@@ -1,23 +1,5 @@
 [
  {
-  "destination": "DPS",
-  "travel_month": "2027-02",
-  "price_sgd": 175,
-  "sent_at": "2026-10-07T23:25:24+00:00"
- },
- {
-  "destination": "HND",
-  "travel_month": "2026-11",
-  "price_sgd": 507,
-  "sent_at": "2026-10-07T23:25:24+00:00"
- },
- {
-  "destination": "PER",
-  "travel_month": "2027-03",
-  "price_sgd": 443,
-  "sent_at": "2026-10-07T23:25:24+00:00"
- },
- {
   "destination": "MNL",
   "travel_month": "2027-02",
   "price_sgd": 225,
