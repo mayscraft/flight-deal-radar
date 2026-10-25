@@ -226,5 +226,35 @@
   "travel_month": "2027-03",
   "price_sgd": 335,
   "sent_at": "2026-10-24T21:22:50+00:00"
+ },
+ {
+  "destination": "DPS",
+  "travel_month": "2026-11",
+  "price_sgd": 155,
+  "sent_at": "2026-10-25T21:20:31+00:00"
+ },
+ {
+  "destination": "HND",
+  "travel_month": "2027-02",
+  "price_sgd": 529,
+  "sent_at": "2026-10-25T21:20:31+00:00"
+ },
+ {
+  "destination": "KIX",
+  "travel_month": "2027-04",
+  "price_sgd": 510,
+  "sent_at": "2026-10-25T21:20:31+00:00"
+ },
+ {
+  "destination": "MNL",
+  "travel_month": "2027-02",
+  "price_sgd": 234,
+  "sent_at": "2026-10-25T21:20:31+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2027-01",
+  "price_sgd": 512,
+  "sent_at": "2026-10-25T21:20:31+00:00"
  }
 ]
