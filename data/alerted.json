@@ -1,17 +1,5 @@
 [
  {
-  "destination": "SYD",
-  "travel_month": "2027-03",
-  "price_sgd": 496,
-  "sent_at": "2026-10-23T21:47:31+00:00"
- },
- {
-  "destination": "TPE",
-  "travel_month": "2027-01",
-  "price_sgd": 227,
-  "sent_at": "2026-10-23T21:47:31+00:00"
- },
- {
   "destination": "DPS",
   "travel_month": "2027-01",
   "price_sgd": 171,
