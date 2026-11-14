@@ -1,11 +1,5 @@
 [
  {
-  "destination": "TPE",
-  "travel_month": "2027-02",
-  "price_sgd": 291,
-  "sent_at": "2026-10-30T22:44:42+00:00"
- },
- {
   "destination": "HND",
   "travel_month": "2026-11",
   "price_sgd": 505,
@@ -262,5 +256,17 @@
   "travel_month": "2026-12",
   "price_sgd": 495,
   "sent_at": "2026-11-12T23:56:36+00:00"
+ },
+ {
+  "destination": "HND",
+  "travel_month": "2027-02",
+  "price_sgd": 521,
+  "sent_at": "2026-11-14T00:05:58+00:00"
+ },
+ {
+  "destination": "TPE",
+  "travel_month": "2027-04",
+  "price_sgd": 297,
+  "sent_at": "2026-11-14T00:05:58+00:00"
  }
 ]
