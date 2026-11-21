@@ -208,5 +208,17 @@
   "travel_month": "2027-01",
   "price_sgd": 283,
   "sent_at": "2026-11-20T00:58:52+00:00"
+ },
+ {
+  "destination": "DPS",
+  "travel_month": "2027-01",
+  "price_sgd": 168,
+  "sent_at": "2026-11-21T00:33:06+00:00"
+ },
+ {
+  "destination": "ICN",
+  "travel_month": "2026-12",
+  "price_sgd": 477,
+  "sent_at": "2026-11-21T00:33:06+00:00"
  }
 ]
