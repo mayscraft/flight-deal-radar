@@ -1,17 +1,5 @@
 [
  {
-  "destination": "NRT",
-  "travel_month": "2027-05",
-  "price_sgd": 512,
-  "sent_at": "2026-11-10T01:50:32+00:00"
- },
- {
-  "destination": "TPE",
-  "travel_month": "2027-04",
-  "price_sgd": 297,
-  "sent_at": "2026-11-10T01:50:32+00:00"
- },
- {
   "destination": "DPS",
   "travel_month": "2027-01",
   "price_sgd": 172,
@@ -202,5 +190,35 @@
   "travel_month": "2027-05",
   "price_sgd": 447,
   "sent_at": "2026-11-22T23:57:26+00:00"
+ },
+ {
+  "destination": "DPS",
+  "travel_month": "2027-01",
+  "price_sgd": 171,
+  "sent_at": "2026-11-24T04:09:32+00:00"
+ },
+ {
+  "destination": "HND",
+  "travel_month": "2026-12",
+  "price_sgd": 548,
+  "sent_at": "2026-11-24T04:09:32+00:00"
+ },
+ {
+  "destination": "MNL",
+  "travel_month": "2027-01",
+  "price_sgd": 215,
+  "sent_at": "2026-11-24T04:09:32+00:00"
+ },
+ {
+  "destination": "NRT",
+  "travel_month": "2026-12",
+  "price_sgd": 514,
+  "sent_at": "2026-11-24T04:09:32+00:00"
+ },
+ {
+  "destination": "SYD",
+  "travel_month": "2027-04",
+  "price_sgd": 533,
+  "sent_at": "2026-11-24T04:09:32+00:00"
  }
 ]
